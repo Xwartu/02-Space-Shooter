@@ -1,6 +1,12 @@
 # 02-Space-Shooter
 Space Shooter project for MSCH-C220, 9/27/2020. 
 
+Score caps for their respective different levels - 100, 250, 400, 600
+
+After 600 you win!
+
+A and D move left and right, and spacebar shoots, ESC quits. 
+
 ## Implementation
 Built using Godot 3.2.2
 
@@ -41,10 +47,12 @@ Kenny.nl Crediting for Assets:
 ########################################################################
 
 ## References
-None
+
 
 ## Future Development
 Possibly, but not currently.
+
+Would have liked to add in music and sound effects as well as some "LEVEL 1" type pop up texts but do not have enough time in the day today unfortunately for personal reasons. Juicy brick breaker it is then!
 
 ## Created by
 Joshua Tonner

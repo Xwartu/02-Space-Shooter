@@ -2,16 +2,16 @@
 
 [ext_resource path="res://Assets/Fonts/kenvector_future.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/blue.png" type="Texture" id=2]
-[ext_resource path="res://Assets/spaceMeteors_004.png" type="Texture" id=3]
+[ext_resource path="res://Asteroids.gd" type="Script" id=3]
 [ext_resource path="res://HUD/HUD2.gd" type="Script" id=4]
 [ext_resource path="res://Player/Player.gd" type="Script" id=5]
 [ext_resource path="res://Enemy/Enemies2.gd" type="Script" id=6]
-[ext_resource path="res://Assets/playerShip3_orange.png" type="Texture" id=7]
+[ext_resource path="res://Assets/playerShip3_green.png" type="Texture" id=7]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 30 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 24
 font_data = ExtResource( 1 )
 
@@ -36,7 +36,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Damage"]
 light_mask = -2147483647
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="Player"]
 one_shot = true
@@ -47,47 +47,12 @@ polygon = PoolVector2Array( 9, -35, 16.2, -21.5, 16.9, -21.5, 49, 15.5, 49, 32.5
 
 [node name="Bullets" type="Node2D" parent="."]
 
-[node name="Asteroid" type="KinematicBody2D" parent="."]
-position = Vector2( 544.075, -986.063 )
-collision_layer = 2
-collision_mask = 2
-motion/sync_to_physics = true
+[node name="Asteroids" type="Node2D" parent="."]
+script = ExtResource( 3 )
 
-[node name="asteroid" type="Sprite" parent="Asteroid"]
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 3 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Asteroid"]
-scale = Vector2( 0.3, 0.3 )
-polygon = PoolVector2Array( 17, -110.3, 17, -108.9, 64, -91.9, 64, -90.5, 71, -85.5, 71, -83.1, 108, -31.1, 108, -20.5, 110, 12.2, 110, 46.5, 61.9, 101.5, 60.5, 101.5, 51.5, 106.5, 45.4, 106.5, 24.6, 110.5, -17.9, 110.5, -68, 97, -68, 95.4, -82, 80.3, -82, 78.2, -110, 41.5, -110, -26.5, -62, -90.5, -59.4, -90.5, -9, -110.5, 14.9, -110.5 )
-
-[node name="Asteroid2" type="KinematicBody2D" parent="."]
-position = Vector2( 859.452, -1455.88 )
-collision_layer = 2
-collision_mask = 2
-motion/sync_to_physics = true
-
-[node name="asteroid" type="Sprite" parent="Asteroid2"]
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 3 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Asteroid2"]
-scale = Vector2( 0.3, 0.3 )
-polygon = PoolVector2Array( 17, -110.3, 17, -108.9, 64, -91.9, 64, -90.5, 71, -85.5, 71, -83.1, 108, -31.1, 108, -20.5, 110, 12.2, 110, 46.5, 61.9, 101.5, 60.5, 101.5, 51.5, 106.5, 45.4, 106.5, 24.6, 110.5, -17.9, 110.5, -68, 97, -68, 95.4, -82, 80.3, -82, 78.2, -110, 41.5, -110, -26.5, -62, -90.5, -59.4, -90.5, -9, -110.5, 14.9, -110.5 )
-
-[node name="Asteroid3" type="KinematicBody2D" parent="."]
-position = Vector2( 182.436, -1925.98 )
-collision_layer = 2
-collision_mask = 2
-motion/sync_to_physics = true
-
-[node name="asteroid" type="Sprite" parent="Asteroid3"]
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 3 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Asteroid3"]
-scale = Vector2( 0.3, 0.3 )
-polygon = PoolVector2Array( 17, -110.3, 17, -108.9, 64, -91.9, 64, -90.5, 71, -85.5, 71, -83.1, 108, -31.1, 108, -20.5, 110, 12.2, 110, 46.5, 61.9, 101.5, 60.5, 101.5, 51.5, 106.5, 45.4, 106.5, 24.6, 110.5, -17.9, 110.5, -68, 97, -68, 95.4, -82, 80.3, -82, 78.2, -110, 41.5, -110, -26.5, -62, -90.5, -59.4, -90.5, -9, -110.5, 14.9, -110.5 )
+[node name="Timer" type="Timer" parent="Asteroids"]
+wait_time = 1.5
+autostart = true
 
 [node name="Explosions" type="Node2D" parent="."]
 
@@ -108,7 +73,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="HUD"]
 margin_right = 1024.0
 margin_bottom = 60.0
-color = Color( 0.14902, 1, 0, 0.513726 )
+color = Color( 0.266667, 1, 0, 0.513726 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -117,7 +82,7 @@ __meta__ = {
 margin_left = 10.0
 margin_right = 512.0
 margin_bottom = 60.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Health:"
 valign = 1
 __meta__ = {
@@ -128,7 +93,7 @@ __meta__ = {
 margin_left = 512.0
 margin_right = 1004.0
 margin_bottom = 60.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Score:"
 align = 2
 valign = 1
@@ -137,4 +102,5 @@ __meta__ = {
 }
 [connection signal="body_entered" from="Player/Damage" to="Player" method="_on_Damage_body_entered"]
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Asteroids/Timer" to="Asteroids" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Enemies/Timer" to="Enemies" method="_on_Timer_timeout"]
