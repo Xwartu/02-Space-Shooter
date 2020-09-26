@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/playerShip3_orange.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Assets/black.png" type="Texture" id=5]
 [ext_resource path="res://HUD/HUD.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Fonts/kenvector_future.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Levels/Score Changer.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -95,10 +94,7 @@ script = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="Enemies"]
 
-[node name="Score Changer" type="Node2D" parent="."]
-script = ExtResource( 8 )
-
-[node name="HUD" type="Control" parent="Score Changer"]
+[node name="HUD" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 6 )
@@ -106,7 +102,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Score Changer/HUD"]
+[node name="ColorRect" type="ColorRect" parent="HUD"]
 margin_right = 1024.0
 margin_bottom = 60.0
 color = Color( 1, 0.4, 0, 0.513726 )
@@ -114,15 +110,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Health" type="Label" parent="Score Changer/HUD"]
+[node name="Health" type="Label" parent="HUD"]
 margin_left = 10.0
 margin_right = 512.0
 margin_bottom = 60.0
 custom_fonts/font = SubResource( 1 )
 text = "Health:"
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Score" type="Label" parent="Score Changer/HUD"]
+[node name="Score" type="Label" parent="HUD"]
 margin_left = 512.0
 margin_right = 1004.0
 margin_bottom = 60.0
