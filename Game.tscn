@@ -1,35 +1,137 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/playerShip3_orange.png" type="Texture" id=2]
+[ext_resource path="res://Enemy/Enemies.gd" type="Script" id=3]
+[ext_resource path="res://Assets/spaceMeteors_004.png" type="Texture" id=4]
+[ext_resource path="res://Assets/black.png" type="Texture" id=5]
+[ext_resource path="res://HUD/HUD.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Fonts/kenvector_future.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Levels/Score Changer.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 7 )
 
 [node name="Game" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1025.0
-margin_bottom = 596.0
-color = Color( 0, 0, 0, 0.878431 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512.658, 300.952 )
+scale = Vector2( 4.01098, 2.35672 )
+texture = ExtResource( 5 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 506.22, 507.901 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="player" type="Sprite" parent="Player"]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="Player"]
 one_shot = true
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+scale = Vector2( 0.8, 0.8 )
+polygon = PoolVector2Array( 9, -35, 16.2, -21.5, 16.9, -21.5, 49, 15.5, 49, 32.5, 23.8, 32.5, 18.8, 37.5, -18.6, 37.5, -22.9, 32.5, -39.8, 32.5, -49, 33.5, -49, 15.4, -15, -23.2, -15, -25, -9, -36.1, -9, -37.5, 9, -37.5 )
+
 [node name="Bullets" type="Node2D" parent="."]
 
 [node name="Asteroid" type="KinematicBody2D" parent="."]
+position = Vector2( 544.075, -986.063 )
 collision_layer = 2
 collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="asteroid" type="Sprite" parent="Asteroid"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Asteroid"]
+scale = Vector2( 0.3, 0.3 )
+polygon = PoolVector2Array( 17, -110.3, 17, -108.9, 64, -91.9, 64, -90.5, 71, -85.5, 71, -83.1, 108, -31.1, 108, -20.5, 110, 12.2, 110, 46.5, 61.9, 101.5, 60.5, 101.5, 51.5, 106.5, 45.4, 106.5, 24.6, 110.5, -17.9, 110.5, -68, 97, -68, 95.4, -82, 80.3, -82, 78.2, -110, 41.5, -110, -26.5, -62, -90.5, -59.4, -90.5, -9, -110.5, 14.9, -110.5 )
+
+[node name="Asteroid2" type="KinematicBody2D" parent="."]
+position = Vector2( 859.452, -1455.88 )
+collision_layer = 2
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="asteroid" type="Sprite" parent="Asteroid2"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Asteroid2"]
+scale = Vector2( 0.3, 0.3 )
+polygon = PoolVector2Array( 17, -110.3, 17, -108.9, 64, -91.9, 64, -90.5, 71, -85.5, 71, -83.1, 108, -31.1, 108, -20.5, 110, 12.2, 110, 46.5, 61.9, 101.5, 60.5, 101.5, 51.5, 106.5, 45.4, 106.5, 24.6, 110.5, -17.9, 110.5, -68, 97, -68, 95.4, -82, 80.3, -82, 78.2, -110, 41.5, -110, -26.5, -62, -90.5, -59.4, -90.5, -9, -110.5, 14.9, -110.5 )
+
+[node name="Asteroid3" type="KinematicBody2D" parent="."]
+position = Vector2( 182.436, -1925.98 )
+collision_layer = 2
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="asteroid" type="Sprite" parent="Asteroid3"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Asteroid3"]
+scale = Vector2( 0.3, 0.3 )
+polygon = PoolVector2Array( 17, -110.3, 17, -108.9, 64, -91.9, 64, -90.5, 71, -85.5, 71, -83.1, 108, -31.1, 108, -20.5, 110, 12.2, 110, 46.5, 61.9, 101.5, 60.5, 101.5, 51.5, 106.5, 45.4, 106.5, 24.6, 110.5, -17.9, 110.5, -68, 97, -68, 95.4, -82, 80.3, -82, 78.2, -110, 41.5, -110, -26.5, -62, -90.5, -59.4, -90.5, -9, -110.5, 14.9, -110.5 )
 
 [node name="Explosions" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="Enemies"]
+
+[node name="Score Changer" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="HUD" type="Control" parent="Score Changer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Score Changer/HUD"]
+margin_right = 1024.0
+margin_bottom = 60.0
+color = Color( 1, 0.4, 0, 0.513726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Label" parent="Score Changer/HUD"]
+margin_left = 10.0
+margin_right = 512.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 1 )
+text = "Health:"
+valign = 1
+
+[node name="Score" type="Label" parent="Score Changer/HUD"]
+margin_left = 512.0
+margin_right = 1004.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 1 )
+text = "Score:"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Enemies/Timer" to="Enemies" method="_on_Timer_timeout"]

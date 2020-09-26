@@ -4,8 +4,6 @@ Space Shooter project for MSCH-C220, 9/27/2020.
 ## Implementation
 Built using Godot 3.2.2
 
-## References
-
 Kenny.nl Crediting for Assets:
 
 ########################################################################
@@ -41,6 +39,9 @@ Kenny.nl Crediting for Assets:
 	Follow on Twitter for updates:
 	@KenneyNL
 ########################################################################
+
+## References
+None
 
 ## Future Development
 Possibly, but not currently.
