@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var HUD = get_node("/root/Game/HUD")
 export var speed = 4
 onready var Bullet = load("res://Bullet/Bullet.tscn")
 var reloaded = true
@@ -12,12 +13,11 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-	position.x += get_input()*speed
-	
+	position += get_input()*speed
 	if Input.is_action_pressed("shoot") and reloaded:
 		var bullet = Bullet.instance()
-		bullet.position + position
-		get_node("/root/Game/Bullets").add_child(Bullet)
+		bullet.position = position
+		get_node("/root/Game/Bullets").add_child(bullet)
 		reloaded = false
 		$Timer.start()
 		
@@ -36,3 +36,8 @@ func get_input():
 
 func _on_Timer_timeout():
 	reloaded = true 
+
+
+func _on_Damage_body_entered(body):
+	HUD.update_health(-body.damage)
+	body.die()
