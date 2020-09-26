@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 onready var HUD = get_node("/root/Game/HUD")
 
-export var speed = Vector2(2,4)
+export var speed = Vector2(0,9)
 export var health = 100
 export var points = 20
 export var damage = 20

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const GRAVITY = 50.0
+const GRAVITY = 75.0
 var velocity = Vector2()
 
 func _physics_process(delta):
