@@ -7,7 +7,8 @@ Built using Godot 3.2.2
 ## References
 
 Kenny.nl Crediting for Assets:
-###############################################################################
+
+########################################################################
 
 	Space Shooter (Redux, plus fonts and sounds) by Kenney Vleugels (www.kenney.nl)
 
@@ -19,7 +20,27 @@ Kenny.nl Crediting for Assets:
 	You may use these graphics in personal and commercial projects.
 	Credit (Kenney or www.kenney.nl) would be nice but is not mandatory.
 
-###############################################################################
+
+	Space Shooter Extension
+
+	by  Kenney Vleugels (Kenney.nl)
+
+			------------------------------
+
+	License (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+
+	You may use these assets in personal and commercial projects.
+	Credit (Kenney or www.kenney.nl) would be nice but is not mandatory.
+
+			------------------------------
+
+	Donate:   http://support.kenney.nl
+	Request:  http://request.kenney.nl
+
+	Follow on Twitter for updates:
+	@KenneyNL
+########################################################################
 
 ## Future Development
 Possibly, but not currently.
